@@ -86,7 +86,7 @@ Resources:
             - Effect: Allow
               Action:
                 - logs:CreateLogGroup
-              Resource: arn:aws:logs:eu-central-1:1234567890:*
+              Resource: arn:aws:logs:your-region:1234567890:*
             - Effect: Allow
               Action:
                 - logs:CreateLogStream
