@@ -93,12 +93,12 @@ Resources:
                 - logs:PutLogEvents
               Resource:
                 - >-
-                  arn:aws:logs:eu-central-1:1234567890:log-group:/aws/lambda/function_name*
+                  arn:aws:logs:your-region:1234567890:log-group:/aws/lambda/function_name*
             - Effect: Allow
               Action:
                 - athena:StartQueryExecution
                 - athena:GetQueryResults
-              Resource: arn:aws:athena:region:1234567890:*
+              Resource: arn:aws:athena:your-region:1234567890:*
             - Sid: Statement1
               Effect: Allow
               Action:
