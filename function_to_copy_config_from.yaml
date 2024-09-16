@@ -1,0 +1,120 @@
+# This AWS SAM template has been generated from your function's configuration. If
+# your function has one or more triggers, note that the AWS resources associated
+# with these triggers aren't fully specified in this template and include
+# placeholder values. Open this template in AWS Application Composer or your
+# favorite IDE and modify it to specify a serverless application with other AWS
+# resources.
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: An AWS Serverless Application Model template describing your function.
+Resources:
+  clickcosts_to_email:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: .
+      Description: ''
+      MemorySize: 128
+      Timeout: 60
+      Architectures:
+        - x86_64
+      EphemeralStorage:
+        Size: 512
+      EventInvokeConfig:
+        MaximumEventAgeInSeconds: 21600
+        MaximumRetryAttempts: 2
+      ImageUri: >-
+        1234567890.dkr.ecr.eu-central-1.amazonaws.com/ecr-repository@sha256:1234567890
+      PackageType: Image
+      Policies:
+        - Statement:
+            - Sid: Statement1
+              Effect: Allow
+              Action:
+                - sts:AssumeRole
+              Resource:
+                - arn:aws:iam::1234567890:role/your-role-name
+            - Sid: VisualEditor0
+              Effect: Allow
+              Action:
+                - athena:*
+              Resource:
+                - '*'
+                - arn:aws:athena:region:1234567890:*
+            - Sid: VisualEditor0
+              Effect: Allow
+              Action:
+                - s3:PutObject
+              Resource: arn:aws:s3:::*/*
+            - Sid: VisualEditor1
+              Effect: Allow
+              Action:
+                - s3:ListAccessPointsForObjectLambda
+                - s3:GetAccessPoint
+                - s3:PutAccountPublicAccessBlock
+                - s3:ListAccessPoints
+                - s3:CreateStorageLensGroup
+                - s3:ListJobs
+                - s3:PutStorageLensConfiguration
+                - s3:ListMultiRegionAccessPoints
+                - s3:ListStorageLensGroups
+                - s3:ListStorageLensConfigurations
+                - s3:GetAccountPublicAccessBlock
+                - s3:ListAllMyBuckets
+                - s3:ListAccessGrantsInstances
+                - s3:PutAccessPointPublicAccessBlock
+                - s3:CreateJob
+              Resource: '*'
+            - Sid: VisualEditor2
+              Effect: Allow
+              Action:
+                - s3:*
+              Resource: arn:aws:s3:::*/*
+            - Sid: VisualEditor3
+              Effect: Allow
+              Action:
+                - s3:*
+              Resource:
+                - arn:aws:s3:::*
+                - arn:aws:s3:*:1234567890:access-grants/default/grant/*
+                - arn:aws:s3-object-lambda:*:1234567890:accesspoint/*
+                - arn:aws:s3:*:1234567890:accesspoint/*
+            - Sid: VisualEditor0
+              Effect: Allow
+              Action:
+                - secretsmanager:*
+              Resource: '*'
+            - Effect: Allow
+              Action:
+                - logs:CreateLogGroup
+              Resource: arn:aws:logs:eu-central-1:1234567890:*
+            - Effect: Allow
+              Action:
+                - logs:CreateLogStream
+                - logs:PutLogEvents
+              Resource:
+                - >-
+                  arn:aws:logs:eu-central-1:1234567890:log-group:/aws/lambda/function_name*
+            - Effect: Allow
+              Action:
+                - athena:StartQueryExecution
+                - athena:GetQueryResults
+              Resource: arn:aws:athena:region:1234567890:*
+            - Sid: Statement1
+              Effect: Allow
+              Action:
+                - events:*
+              Resource:
+                - '*'
+            - Sid: Statement2
+              Effect: Allow
+              Action:
+                - scheduler:*
+              Resource:
+                - '*'
+      SnapStart:
+        ApplyOn: None
+      Events:
+        Schedule1:
+          Type: Schedule
+          Properties:
+            Schedule: cron(0 4 * * ? *)
