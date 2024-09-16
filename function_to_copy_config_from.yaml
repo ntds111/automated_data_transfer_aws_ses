@@ -23,7 +23,7 @@ Resources:
         MaximumEventAgeInSeconds: 21600
         MaximumRetryAttempts: 2
       ImageUri: >-
-        1234567890.dkr.ecr.eu-central-1.amazonaws.com/ecr-repository@sha256:1234567890
+        1234567890.dkr.ecr.your-region.amazonaws.com/ecr-repository@sha256:1234567890
       PackageType: Image
       Policies:
         - Statement:
