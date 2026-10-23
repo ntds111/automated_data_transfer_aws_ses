@@ -1,0 +1,40 @@
+# Python and tooling
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+.tox/
+.nox/
+
+# Local configuration, credentials, and report artifacts
+.env
+.env.*
+!.env.example
+.aws/
+*.pem
+*.key
+*.log
+*.xlsx
+*.csv
+
+# Editors and OS
+.idea/
+.vscode/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# Docker overrides
+docker-compose.override.yml
+compose.override.yaml
