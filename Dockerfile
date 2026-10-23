@@ -1,14 +1,8 @@
-FROM public.ecr.aws/lambda/python:3.9
- 
-# Copy requirements.txt
-COPY requirements.txt ${LAMBDA_TASK_ROOT}
- 
-# Install the specified packages
-RUN pip install -r requirements.txt
- 
-# Copy function code and config file
-COPY lambda_function.py ${LAMBDA_TASK_ROOT}
-COPY name_of_the_function_to_copy_from.yaml ${LAMBDA_TASK_ROOT}
- 
-# Set the CMD to your handler (could also be done as a parameter override outside of the Dockerfile)
-CMD [ "lambda_function.handler" ]
+FROM public.ecr.aws/lambda/python:3.11
+
+COPY requirements.txt ${LAMBDA_TASK_ROOT}/
+RUN pip install --no-cache-dir -r ${LAMBDA_TASK_ROOT}/requirements.txt
+
+COPY main.py config.py ${LAMBDA_TASK_ROOT}/
+
+CMD ["main.handler"]
